@@ -4,7 +4,7 @@ A C++ implementation of a mathematical expression evaluator using the Shunting-y
 
 This project is a custom, from-scratch implementation of a mathematical expression parser and evaluator in C++. It is designed to process standard infix notation expressions and evaluate them with proper operator precedence and parentheses support, mimicking the functionality of a basic calculator.
 
-The implementation uses the **Shunting-yard algorithm** to convert infix expressions to postfix notation (Reverse Polish Notation), then evaluates the postfix expression using a stack-based approach. The calculator automatically handles operator precedence and associativity, ensuring mathematically correct results.
+The implementation uses the Shunting-yard algorithm to convert infix expressions to postfix notation (Reverse Polish Notation), then evaluates the postfix expression using a stack-based approach. The calculator automatically handles operator precedence and associativity, ensuring mathematically correct results.
 
 ## Core Features
 
@@ -85,16 +85,3 @@ int main() {
 
    return 0;
 }
-```
-
-### Expected Output
-
-```cpp
-3+4*2 = 11
-(1+2)*3 = 9
-10/2-3 = 2
-2+3*4 = 14
-Error: divide by zero
-```
-(Note: The calculator follows standard mathematical operator precedence rules.)
-
