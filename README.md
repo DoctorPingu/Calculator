@@ -27,6 +27,7 @@ The project includes functionality to evaluate mathematical expressions with pro
 ### Prerequisites
 
 -   A C++ compiler that supports the C++11 standard or later (e.g., GCC 7+, Clang 5+).
+-   [Google Test](https://github.com/google/googletest) (gtest) installed and accessible by the compiler.
 
 ### Compiling and Running
 
