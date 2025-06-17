@@ -61,9 +61,9 @@ TEST(CalculatorEvalTest, divideByZeroAgain) {
 }
 
 TEST(CalculatorEvalTest, MixedOperationsWithPrecedence) {
-    EXPECT_EQ(Calc::eval("3+5*2"), 13);       // 5*2=10 → 3+10=13
-    EXPECT_EQ(Calc::eval("3*5/2+3"), 10);     // 3*5=15 → 15/2=7 → 7+3=10 (integer division)
-    EXPECT_EQ(Calc::eval("10-6/2"), 7);       // 6/2=3 → 10-3=7
+    EXPECT_EQ(Calc::eval("3+5*2"), 13);       
+    EXPECT_EQ(Calc::eval("3*5/2+3"), 10);     
+    EXPECT_EQ(Calc::eval("10-6/2"), 7);       
 }
 
 TEST(CalculatorEvalTest, HandlesSpacesInExpression) {
@@ -71,20 +71,20 @@ TEST(CalculatorEvalTest, HandlesSpacesInExpression) {
 }
 
 TEST(CalculatorEvalTest, ParenthesesOverridePrecedence) {
-    EXPECT_EQ(Calc::eval("(2+3)*4"), 20);     // 2+3=5 → 5*4=20
-    EXPECT_EQ(Calc::eval("2*(3+4)"), 14);     // 3+4=7 → 2*7=14
-    EXPECT_EQ(Calc::eval("10/(2+3)"), 2);     // 2+3=5 → 10/5=2
-    EXPECT_EQ(Calc::eval("4*(2+3)/5"), 4);    // (2+3)=5 → 4*5=20 → 20/5=4
+    EXPECT_EQ(Calc::eval("(2+3)*4"), 20);     
+    EXPECT_EQ(Calc::eval("2*(3+4)"), 14);     
+    EXPECT_EQ(Calc::eval("10/(2+3)"), 2);   
+    EXPECT_EQ(Calc::eval("4*(2+3)/5"), 4);  
 }
 
 TEST(CalculatorEvalTest, ParenthesesAndPrecedence) {
-  EXPECT_EQ(Calc::eval("5*(6+3)/2"), 22);     // 6+3 = 9 → 5*9 = 45 → 45/2 = 22
+  EXPECT_EQ(Calc::eval("5*(6+3)/2"), 22);  
 }
 
 TEST(CalculatorEvalTest, NestedParentheses) {
-    EXPECT_EQ(Calc::eval("2*(1+(2+3))"), 12);       // inner: 2+3=5 → outer: 1+5=6 → 2*6=12
-    EXPECT_EQ(Calc::eval("((2+3)*2)+1"), 11);       // (2+3)=5 → 5*2=10 → +1=11
-    EXPECT_EQ(Calc::eval("(((((3)))))"), 3);        // redundant nesting
+    EXPECT_EQ(Calc::eval("2*(1+(2+3))"), 12);       
+    EXPECT_EQ(Calc::eval("((2+3)*2)+1"), 11);  
+    EXPECT_EQ(Calc::eval("(((((3)))))"), 3);  
 }
 
 TEST(CalculatorEvalTest, ParenthesesWithSpaces) {

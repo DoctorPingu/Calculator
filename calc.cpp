@@ -1,17 +1,3 @@
-/************************************************************************************
-* README
-* ---------
-* This task (2a Calculator) was completed independently.
-* As part of the assignment requirements, no GenAI were used to directly solve the assignment, write logic or produce code output.
-*
-* Any usage of copying and pasting was purely for:
-* - Rearranging sections of existing code.
-* - Reverting back to earlier versions of my own work through the submissions tab.
-* - Improving clarity, formatting or correcting previous logic.
-*
-* All debugging and problem solving followed academic integrity principles outlined by UTS.
-************************************************************************************/
-
 #include <iostream>
 #include <vector>
 #include <map>
@@ -34,43 +20,34 @@ bool Calc::operator==(const Calc::Token& a, const Calc::Token& b) {
   return true;
 }
 
-// Function we needed to work on for this task.
 std::vector<Calc::Token> Calc::infixToPostfix(const std::vector<Token>& input) {
-  std::vector<Token> output;     // Output list in postfix order.
-  std::vector<Token> opStack;    // Stack to hold operators and parentheses.
+  std::vector<Token> output;
+  std::vector<Token> opStack;
 
-  // Define operator precedence: higher value means higher precedence.
   auto precedence = [](char op) -> int {
     if (op == '+' || op == '-') return 1;
     if (op == '*' || op == '/') return 2;
     return 0;
   };
 
-  // Define associativity: all operators in this assignment are left-associative.
   auto isLeftAssociative = [](char) -> bool {
     return true;
   };
 
-  // Process each token in the infix input.
   for (const Token& token : input) {
     if (token.type == 'n') {
-      // If it's a numberr, add directly to output.
       output.push_back(token);
     } else if (token.type == '(') {
-      // Left parenthesis goes on the stack.
       opStack.push_back(token);
     } else if (token.type == ')') {
-      // Pop operators from stack to output until matching '(' is found.
       while (!opStack.empty() && opStack.back().type != '(') {
         output.push_back(opStack.back());
         opStack.pop_back();
       }
-      // Discard the '(' itself.
       if (!opStack.empty() && opStack.back().type == '(') {
         opStack.pop_back();
       }
     } else {
-      // Operator: pop from stack to output while top has higher or equal precedence.
       while (!opStack.empty()) {
         Token top = opStack.back();
         if (top.type == '(') break;
@@ -81,12 +58,10 @@ std::vector<Calc::Token> Calc::infixToPostfix(const std::vector<Token>& input) {
           break;
         }
       }
-      // Push current operator onto the stack.
       opStack.push_back(token);
     }
   }
 
-  // Pop any remaining operators from the stack to the output.
   while (!opStack.empty()) {
     output.push_back(opStack.back());
     opStack.pop_back();
