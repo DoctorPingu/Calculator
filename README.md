@@ -85,3 +85,13 @@ int main() {
 
    return 0;
 }
+```
+### Expected Output
+```cpp
+3+4*2 = 11
+(1+2)*3 = 9
+10/2-3 = 2
+2+3*4 = 14
+Error: divide by zero
+```
+*(Note: The calculator follows standard mathematical operator precedence rules.)*
