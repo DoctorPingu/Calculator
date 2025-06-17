@@ -21,5 +21,4 @@ std::ostream& operator<<(std::ostream&, const Calc::Token&);
 
 }
 
-
 #endif    // CALC_HPP_
