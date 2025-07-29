@@ -84,7 +84,3 @@ Result: 33
 - Supports integer arithmetic only (no floating-point calculations).
 - Division operations perform integer division, truncating decimals.
 - Does not handle invalid input or syntax errors robustly beyond basic parsing checks.
-
-## Author Acknowledgement
-
-Developed by Mohammed as part of Computer Science coursework at the University of Technology Sydney (UTS).
